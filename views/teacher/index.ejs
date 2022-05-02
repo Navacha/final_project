@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title>Teacher Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body style="background-color: #ede9c5">
+    <div
+      style="
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        margin-top: 10rem;
+        margin-bottom: 2rem;
+      "
+    >
+      <div style="float: left">
+        <h2>Teacher Table</h2>
+      </div>
+      <div
+        style="
+          margin-left: auto;
+          margin-right: 0;
+          margin-bottom: 2;
+          margin-top: auto;
+        "
+      >
+        <a style="margin-right: 2rem" href="http://34.143.159.240:3080">
+          <button>Back to Home</button>
+        </a>
+        <a
+          style="margin-right: 2rem"
+          href="http://34.143.159.240:3080/add/teacherPage"
+        >
+          <button>Add New Teacher</button>
+        </a>
+        <a href="http://34.143.159.240:3080/students">
+          <button>Switch to Students</button>
+        </a>
+      </div>
+    </div>
+
+    <div
+      style="width: 80%; display: flex; flex-direction: column; margin: auto"
+    >
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Teacher ID</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Sex</th>
+            <th>Major</th>
+            <th>Age</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(data.length){ for(let i = 0; i< data.length; i++) {%>
+          <tr>
+            <td><%= data[i].id%></td>
+            <td><%= data[i].first_name%></td>
+            <td><%= data[i].last_name%></td>
+            <td><%= data[i].sex%></td>
+            <td><%= data[i].major%></td>
+            <td><%= data[i].age%></td>
+            <td><a href="/delete/teacher?id=<%=data[i].id%>">Delete</a></td>
+          </tr>
+
+          <% } }else{ %>
+          <tr>
+            <td colspan="5">No Teacher Found!</td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

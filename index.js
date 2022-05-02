@@ -6,7 +6,6 @@ const router = express.Router();
 const db = require("./api/queries");
 var bodyParser = require("body-parser");
 
-
 app.use("/api", router);
 app.use(express.static(__dirname + "/views"));
 app.set("views", __dirname + "/views");
